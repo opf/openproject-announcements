@@ -1,0 +1,10 @@
+<%form_for :announcement, @announcement,
+					 :url => {:action => :update},
+					 :html => {:method => :put} do |f|%>
+	<p><%= f.label :text, l(:label_announcement_text)%>
+	<%= f.text_area :text%></p>
+	<%= announcement_date_field_with_calendar @announcement.show_until, "show_until"%>
+	<p><%= f.label :active, l(:active)%>
+	<%= f.check_box :active%></p>
+	<p><%= f.submit :save%>
+<%end%>
