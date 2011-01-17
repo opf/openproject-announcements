@@ -1,10 +1,27 @@
+<% def notice_annoucement_active
+		if @announcement.active_and_current?
+			l(:notice_announcement_active)
+		else
+			l(:notice_announcement_inactive)
+		end
+end %>
+
+<% content_for :sidebar do%>
+<h3>Administration</h3>
+<%= render :partial => 'admin/menu'%>
+<% end %>
+
+<h2>Announcement (<%= notice_annoucement_active%>)</h2>
+<div class="box tabular">
 <%form_for :announcement, @announcement,
 					 :url => {:action => :update},
 					 :html => {:method => :put} do |f|%>
 	<p><%= f.label :text, l(:label_announcement_text)%>
-	<%= f.text_area :text%></p>
-	<%= announcement_date_field_with_calendar @announcement.show_until, "show_until"%>
-	<p><%= f.label :active, l(:active)%>
+	<%= f.text_area :text, :cols => 80, :rows => 5%></p>
+	<p><%= announcement_date_field_with_calendar @announcement.show_until, "show_until"%></p>
+	<p><%= f.label :active, l(:label_active)%>
 	<%= f.check_box :active%></p>
 	<p><%= f.submit l(:button_save)%>
 <%end%>
+</div>
+

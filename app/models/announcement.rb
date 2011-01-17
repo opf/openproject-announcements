@@ -12,6 +12,10 @@ class Announcement < ActiveRecord::Base
     a
   end
 
+  def active_and_current?
+    active? && show_until >= Date.today
+  end
+
   private
   def self.create_default_announcement
     Announcement.create :text => "Announcement",

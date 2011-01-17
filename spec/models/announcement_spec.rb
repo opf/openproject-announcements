@@ -39,11 +39,7 @@ describe Announcement do
     end
 
     describe :active_and_current do
-      before :each do
-
-      end
-
-      describe "WHEN the announcement is not active" do
+      describe "WHEN no announcement is active" do
         before :each do
           Factory.create(:inactive_announcement)
         end
@@ -51,7 +47,7 @@ describe Announcement do
         it{ Announcement.active_and_current.should be_nil }
       end
 
-      describe "WHEN the announcement is active and today is before show_until" do
+      describe "WHEN the one announcement is active and today is before show_until" do
         before :each do
           @announcement = Factory.create(:active_announcement,
                                          :show_until => Date.today + 14.days)
@@ -60,7 +56,7 @@ describe Announcement do
         it{ Announcement.active_and_current.should eql @announcement }
       end
 
-      describe "WHEN the announcement is active and today is after show_until" do
+      describe "WHEN the one announcement is active and today is after show_until" do
         before :each do
           Factory.create(:active_announcement,
                          :show_until => Date.today - 14.days)
@@ -69,7 +65,7 @@ describe Announcement do
         it{ Announcement.active_and_current.should be_nil }
       end
 
-      describe "WHEN the announcement is active and today equals show_until" do
+      describe "WHEN the one announcement is active and today equals show_until" do
         before :each do
           @announcement = Factory.create(:active_announcement,
                                          :show_until => Date.today)
@@ -77,6 +73,47 @@ describe Announcement do
 
         it{ Announcement.active_and_current.should eql @announcement }
       end
+    end
+
+    describe "instance methods" do
+      describe :active_and_current? do
+        describe "WHEN the announcement is not active" do
+          before :each do
+            @announcement = Factory.build(:inactive_announcement)
+          end
+
+          it{ @announcement.active_and_current?.should be_false }
+        end
+
+        describe "WHEN the announcement is active and today is before show_until" do
+          before :each do
+            @announcement = Factory.build(:active_announcement,
+                                           :show_until => Date.today + 14.days)
+          end
+
+          it{ @announcement.active_and_current?.should be_true }
+        end
+
+        describe "WHEN the announcement is active and today is after show_until" do
+          before :each do
+            @announcement = Factory.build(:active_announcement,
+                           :show_until => Date.today - 14.days)
+          end
+
+          it{ @announcement.active_and_current?.should be_false }
+        end
+
+        describe "WHEN the announcement is active and today equals show_until" do
+          before :each do
+            @announcement = Factory.build(:active_announcement,
+                                           :show_until => Date.today)
+          end
+
+          it{ @announcement.active_and_current?.should be_true }
+        end
+      end
+
+
     end
   end
 end

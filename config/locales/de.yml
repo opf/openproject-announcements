@@ -1,2 +1,7 @@
 de:
-  label_announcement: "Ankündigung"
+  label_announcement: Ankündigung
+  label_announcement_text: Text
+  label_show_until: Zeigen bis einschließlich
+  label_active: Aktiv
+  notice_announcement_active: derzeit angezeigt
+  notice_announcement_inactive: derzeit nicht angezeigt

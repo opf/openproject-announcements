@@ -1,3 +1,8 @@
 # English strings go here for Rails i18n
 en:
-  label_announcement: "Announcement"
+  label_announcement: Announcement
+  label_announcement_text: Text
+  label_show_until: Display until
+  label_active: Activ
+  notice_announcement_active: currently displayed
+  notice_announcement_inactive: currently not displayed
