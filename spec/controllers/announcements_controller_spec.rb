@@ -4,6 +4,7 @@ describe AnnouncementsController do
   before(:each) do
     @announcement = mock_model Announcement
     Announcement.stub!(:only_one).and_return(@announcement)
+    disable_flash_sweep
   end
 
   describe :get do
@@ -52,6 +53,7 @@ describe AnnouncementsController do
 
           it{assigns(:announcement).should eql @announcement}
           it{response.should render_template 'edit'}
+          it{flash[:notice].should eql I18n.t(:notice_successful_update)}
         end
       end
     end
