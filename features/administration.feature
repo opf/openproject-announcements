@@ -14,4 +14,4 @@ Feature: When I am an admin
     And I enter "We will have a downtime" into the announcement text field
     And I activate the announcement
     And I click on "Save"
-    Then I should see "Successfully updated"
+    Then I should see "Successful update"
