@@ -1,4 +1,10 @@
 require 'redmine'
+require 'dispatcher'
+
+Dispatcher.to_prepare do
+  require_dependency 'announcements/hooks'
+end
+
 
 Redmine::Plugin.register :redmine_announcements do
   name 'Redmine Announcements plugin'

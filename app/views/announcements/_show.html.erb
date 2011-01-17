@@ -1,0 +1,11 @@
+<% def active_announcement
+		@announcement ||= Announcement.active_and_current
+	end
+%>
+<% content_for :sidebar do %>
+<% unless active_announcement.nil? %>
+<div>
+	<%= active_announcement.text %>
+</div>
+<% end %>
+<%end%>
