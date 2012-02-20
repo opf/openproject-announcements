@@ -1,4 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.connect 'announcements/:id/edit', :controller => 'announcements', :action => 'edit', :id => /.+/
-  #map.connect 'announcement', :controller => 'cost_reports', :project_id => /.+/
+  map.connect 'admin/announcement/edit', :controller => 'announcements', :action => 'edit'
+  map.connect 'admin/announcement/update', :controller => 'announcements', :action => 'update'
 end

@@ -1,5 +1,6 @@
 class AnnouncementsController < ApplicationController
   unloadable
+  layout 'admin'
 
   def edit
     @announcement = Announcement.only_one
@@ -15,4 +16,9 @@ class AnnouncementsController < ApplicationController
     render :action => 'edit'
   end
 
+  private
+
+  def default_breadcrumb
+    l('announcements.announcement')
+  end
 end
