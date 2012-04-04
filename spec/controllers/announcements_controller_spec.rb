@@ -2,6 +2,9 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe AnnouncementsController do
   before(:each) do
+    @controller.stub!(:check_if_login_required)
+    @controller.should_receive(:require_admin)
+
     @announcement = mock_model Announcement
     Announcement.stub!(:only_one).and_return(@announcement)
     disable_flash_sweep
