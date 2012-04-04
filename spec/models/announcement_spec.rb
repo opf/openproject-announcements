@@ -76,6 +76,31 @@ describe Announcement do
     end
 
     describe "instance methods" do
+      describe "mass assignment protected" do
+        let(:id) { 100 }
+        let(:active) { true }
+        let(:show_until) { "2011-01-03".to_date }
+        let(:text) { "lorem ipsum" }
+        let(:created_at) { "2011-01-01".to_date }
+        let(:updated_at) { "2012-01-02".to_date }
+
+        before do
+          @announcement = Announcement.new :id => id,
+                                           :active => active,
+                                           :show_until => show_until,
+                                           :text => text,
+                                           :created_at => created_at,
+                                           :updated_at => updated_at
+        end
+
+        it { @announcement.active.should == active }
+        it { @announcement.show_until.should == show_until }
+        it { @announcement.text.should == text }
+        it { @announcement.id.should_not == id }
+        it { @announcement.created_at.should_not == created_at }
+        it { @announcement.updated_at.should_not == updated_at }
+      end
+
       describe :active_and_current? do
         describe "WHEN the announcement is not active" do
           before :each do
