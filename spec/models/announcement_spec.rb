@@ -85,12 +85,16 @@ describe Announcement do
         let(:updated_at) { "2012-01-02".to_date }
 
         before do
-          @announcement = Announcement.new :id => id,
-                                           :active => active,
-                                           :show_until => show_until,
-                                           :text => text,
-                                           :created_at => created_at,
-                                           :updated_at => updated_at
+          attributes = {
+            :id => id,
+            :active => active,
+            :show_until => show_until,
+            :text => text,
+            :created_at => created_at,
+            :updated_at => updated_at
+          }
+          @announcement = Announcement.new
+          @announcement.send :attributes=, attributes, false
         end
 
         it { @announcement.active.should == active }
