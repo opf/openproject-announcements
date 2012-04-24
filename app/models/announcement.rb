@@ -1,4 +1,6 @@
 class Announcement < ActiveRecord::Base
+  include Redmine::SafeAttributes
+  
   named_scope :active, :conditions => {:active => true}
   named_scope :current, :conditions => ['show_until >= ?', Date.today]
 
