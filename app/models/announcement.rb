@@ -6,6 +6,9 @@ class Announcement < ActiveRecord::Base
                   :show_until,
                   :active
 
+  # for use with safe_attributes=
+  safe_attributes 'text', 'show_until', 'active'
+
   def self.active_and_current
     active.current.first
   end
