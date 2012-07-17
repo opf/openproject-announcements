@@ -10,7 +10,7 @@ Redmine::Plugin.register :redmine_announcements do
   name 'Redmine Announcements plugin'
   author 'Jens Ulferts @ Finnlabs'
   description 'Adds announcements to the login page which are configurable for admins'
-  version '0.2.6'
+  version '0.3.0'
 
   menu :admin_menu, :announcements,
       {:controller => 'announcements', :action => 'edit'},
