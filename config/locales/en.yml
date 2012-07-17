@@ -1,4 +1,6 @@
 en:
+  label_show_until: Show until
+
   announcements:
     announcement: Announcement
     is_active: currently displayed
