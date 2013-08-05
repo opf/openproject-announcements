@@ -1,8 +1,8 @@
 <h2><%= l('announcements.announcement') %> (<%= notice_annoucement_active%>)</h2>
 <div class="box tabular">
-<% form_for :announcement, @announcement,
-					 :url => {:action => :update},
-					 :html => {:method => :put} do |f|%>
+<%= form_for @announcement,
+  					 :url => {:action => :update},
+  					 :html => {:method => :put} do |f|%>
   <p>
     <%= f.label :text, l('announcements.text') %>
     <%= f.text_area :text, :cols => 80, :rows => 5 %>
