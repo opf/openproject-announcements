@@ -1,13 +1,13 @@
 <% def active_announcement
-		@announcement ||= Announcement.active_and_current
-	end
+    @announcement ||= Announcement.active_and_current
+  end
 %>
 <% content_for :header_tags do %>
-	<%= stylesheet_link_tag 'redmine_announcements', :plugin=>'redmine_announcements'%>
+  <%= stylesheet_link_tag 'announcements/announcements.css' %>
 <% end %>
 
 <% unless active_announcement.nil? %>
 <div id="announcement">
-	<%= active_announcement.text %>
+  <%= active_announcement.text %>
 </div>
 <% end %>
