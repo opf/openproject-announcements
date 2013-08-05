@@ -1,8 +1,0 @@
-hu:
-  announcements:
-    announcement: Hirdetmény
-    is_active: jelenleg megjelenítve
-    is_inactive: jelenleg nincs megjelenítve
-    show_until: Megjelenítés lejárata
-    active: Aktív
-    text: Szöveg

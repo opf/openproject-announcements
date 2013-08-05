@@ -1,4 +1,3 @@
-ActionController::Routing::Routes.draw do |map|
-  map.connect 'admin/announcement/edit', :controller => 'announcements', :action => 'edit'
-  map.connect 'admin/announcement/update', :controller => 'announcements', :action => 'update'
+OpenProject::Application.routes.draw do
+  resource :announcements, :path => '/admin/announcement', :only => [:edit, :update]
 end

@@ -1,8 +1,8 @@
 class Announcement < ActiveRecord::Base
   include Redmine::SafeAttributes
-  
-  named_scope :active, :conditions => {:active => true}
-  named_scope :current, :conditions => ['show_until >= ?', Date.today]
+
+  scope :active, where(:active => true)
+  scope :current, where('show_until >= ?', Date.today)
 
   attr_accessible :text,
                   :show_until,
