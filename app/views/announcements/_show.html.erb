@@ -8,6 +8,6 @@
 
 <% unless active_announcement.nil? %>
 <div id="announcement">
-  <%= active_announcement.text %>
+  <%= active_announcement.text.html_safe %>
 </div>
 <% end %>
