@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper'
+require 'spec_helper'
 
 describe Announcement do
   it {should respond_to :text}
@@ -31,7 +31,7 @@ describe Announcement do
 
       context "WHEN an announcement exists" do
         before :each do
-          @announcement = Factory.create(:announcement)
+          @announcement = FactoryGirl.create(:announcement)
         end
 
         it{Announcement.only_one.should eql @announcement}
@@ -41,7 +41,7 @@ describe Announcement do
     describe :active_and_current do
       describe "WHEN no announcement is active" do
         before :each do
-          Factory.create(:inactive_announcement)
+          FactoryGirl.create(:inactive_announcement)
         end
 
         it{ Announcement.active_and_current.should be_nil }
@@ -49,7 +49,7 @@ describe Announcement do
 
       describe "WHEN the one announcement is active and today is before show_until" do
         before :each do
-          @announcement = Factory.create(:active_announcement,
+          @announcement = FactoryGirl.create(:active_announcement,
                                          :show_until => Date.today + 14.days)
         end
 
@@ -58,7 +58,7 @@ describe Announcement do
 
       describe "WHEN the one announcement is active and today is after show_until" do
         before :each do
-          Factory.create(:active_announcement,
+          FactoryGirl.create(:active_announcement,
                          :show_until => Date.today - 14.days)
         end
 
@@ -67,7 +67,7 @@ describe Announcement do
 
       describe "WHEN the one announcement is active and today equals show_until" do
         before :each do
-          @announcement = Factory.create(:active_announcement,
+          @announcement = FactoryGirl.create(:active_announcement,
                                          :show_until => Date.today)
         end
 
@@ -107,7 +107,7 @@ describe Announcement do
       describe :active_and_current? do
         describe "WHEN the announcement is not active" do
           before :each do
-            @announcement = Factory.build(:inactive_announcement)
+            @announcement = FactoryGirl.build(:inactive_announcement)
           end
 
           it{ @announcement.active_and_current?.should be_false }
@@ -115,7 +115,7 @@ describe Announcement do
 
         describe "WHEN the announcement is active and today is before show_until" do
           before :each do
-            @announcement = Factory.build(:active_announcement,
+            @announcement = FactoryGirl.build(:active_announcement,
                                            :show_until => Date.today + 14.days)
           end
 
@@ -124,7 +124,7 @@ describe Announcement do
 
         describe "WHEN the announcement is active and today is after show_until" do
           before :each do
-            @announcement = Factory.build(:active_announcement,
+            @announcement = FactoryGirl.build(:active_announcement,
                            :show_until => Date.today - 14.days)
           end
 
@@ -133,7 +133,7 @@ describe Announcement do
 
         describe "WHEN the announcement is active and today equals show_until" do
           before :each do
-            @announcement = Factory.build(:active_announcement,
+            @announcement = FactoryGirl.build(:active_announcement,
                                            :show_until => Date.today)
           end
 

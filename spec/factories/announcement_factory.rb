@@ -1,13 +1,15 @@
-Factory.define :announcement do |a|
-  a.text "Announcement text"
-  a.show_until Date.today + 14.days
-  a.active true
-end
+FactoryGirl.define do
+  factory :announcement do
+    text "Announcement text"
+    show_until Date.today + 14.days
+    active true
 
-Factory.define :active_announcement, :parent => :announcement do |a|
-  a.active true
-end
+    factory :active_announcement do
+      active true
+    end
 
-Factory.define :inactive_announcement, :parent => :announcement do |a|
-  a.active false
+    factory :inactive_announcement do
+      active false
+    end
+  end
 end
