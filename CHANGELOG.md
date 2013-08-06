@@ -1,3 +1,3 @@
 # Changelog
 
-* `#1470` Convert to engine, adapt directories and naming
+* `#1469` Migration Rails3 Announcement

@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary     = 'OpenProject Plugin for showing announcements on the login page'
   s.description = s.summary
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + %w(CHANGELOG.md)
+  s.files = Dir["{app,config,db,lib}/**/*"] + %w(CHANGELOG.md README.md)
 
   s.add_dependency "rails", "~> 3.2.9"
 
