@@ -4,6 +4,8 @@ class Announcement < ActiveRecord::Base
   scope :active, where(:active => true)
   scope :current, where('show_until >= ?', Date.today)
 
+  validates :show_until, :presence => true
+
   attr_accessible :text,
                   :show_until,
                   :active
@@ -22,7 +24,7 @@ class Announcement < ActiveRecord::Base
   end
 
   def active_and_current?
-    active? && show_until >= Date.today
+    active? && show_until && show_until >= Date.today
   end
 
   private
