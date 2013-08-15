@@ -10,8 +10,9 @@ class AnnouncementsController < ApplicationController
 
   def update
     @announcement = Announcement.only_one
+    @announcement.attributes = params[:announcement]
 
-    if @announcement.update_attributes(params[:announcement])
+    if @announcement.save
       flash[:notice] = l(:notice_successful_update)
     end
 
