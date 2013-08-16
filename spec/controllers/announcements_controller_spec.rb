@@ -46,7 +46,8 @@ describe AnnouncementsController do
 
       describe "SUCCESS" do
         before :each do
-          @announcement.should_receive(:update_attributes).and_return(true)
+          @announcement.should_receive(:attributes=)
+          @announcement.should_receive(:save).and_return(true)
         end
 
         describe "html" do
