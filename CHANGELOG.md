@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0.pre3
+
+* Spec fixes
+
 ## 0.5.0.pre2
 
 * `#1678` Date is not validated, wrong format produces internal error
