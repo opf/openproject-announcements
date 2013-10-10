@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0.pre4
+
+* `#2070` Adaptions after changing core asset locations
+
 ## 0.5.0.pre3
 
 * Spec fixes
