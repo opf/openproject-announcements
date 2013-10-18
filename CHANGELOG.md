@@ -1,5 +1,7 @@
 # Changelog
 
+* `#2378` Squashed old migrations
+
 ## 0.5.0.pre4
 
 * `#2070` Adaptions after changing core asset locations
