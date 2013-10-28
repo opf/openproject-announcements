@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.5.0.pre5
+
 * `#2378` Squashed old migrations
 
 ## 0.5.0.pre4
