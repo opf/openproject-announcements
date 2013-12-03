@@ -19,7 +19,8 @@ module OpenProject::Announcements
         menu :admin_menu,
              :announcements,
              {:controller => 'announcements', :action => 'edit'},
-             :caption => 'Announcement'
+             :caption => 'Announcement',
+             :html => {:class => 'icon2 icon-news'}
       end
     end
 
