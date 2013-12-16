@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + %w(CHANGELOG.md README.md)
 
   s.add_dependency "rails", "~> 3.2.9"
+  s.add_dependency "openproject-plugins", "~> 1.0.4"
 
   s.add_development_dependency 'rspec-rails'
   s.add_development_dependency 'cucumber-rails'
