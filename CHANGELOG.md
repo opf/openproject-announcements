@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.5.0.pre6
+
 * Adaptations for new icon font
 
 ## 0.5.0.pre5
