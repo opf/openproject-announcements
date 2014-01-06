@@ -1,5 +1,7 @@
 # Changelog
 
+* `#2163` [Accessibility] Link form elements to their label - announcment
+
 ## 0.5.0.pre6
 
 * Adaptations for new icon font
