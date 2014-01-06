@@ -1,9 +1,9 @@
 module AnnouncementsHelper
-  def announcement_date_field_with_calendar(interval, field_name)
+  def announcement_date_field_with_calendar(form, interval, field_name)
     date = (interval.present? ? interval.strftime("%Y-%m-%d") : '')
-    ret = label_tag 'announcement_#{field_name}', l("announcements.#{field_name}")
-    ret += text_field_tag "announcement[#{field_name}]", date, :size => 10, :name => "announcement[#{field_name}]"
 
+    ret = form.label field_name.to_sym, l("announcements.#{field_name}")
+    ret += form.text_field field_name.to_sym, value: date, size: 10
     ret += calendar_for("announcement_#{field_name}")
 
     ret
