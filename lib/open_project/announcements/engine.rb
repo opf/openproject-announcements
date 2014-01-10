@@ -14,7 +14,7 @@ module OpenProject::Announcements
         version spec.version
         url 'https://www.openproject.org/projects/announcement'
 
-        requires_openproject ">= 3.0.0pre36"
+        requires_openproject ">= 3.0.0pre42"
 
         menu :admin_menu,
              :announcements,
