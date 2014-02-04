@@ -1,4 +1,7 @@
+<% html_title l(:label_administration), l("announcements.announcement") %>
+
 <h2><%= l('announcements.announcement') %> (<%= notice_annoucement_active%>)</h2>
+
 <div class="box tabular">
 <%= form_for @announcement,
   					 :url => {:action => :update},
