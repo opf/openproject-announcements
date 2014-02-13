@@ -1,26 +1,27 @@
 <% html_title l(:label_administration), l("announcements.announcement") %>
 
+<%= error_messages_for 'announcement' %>
+
 <h2><%= l('announcements.announcement') %> (<%= notice_annoucement_active%>)</h2>
 
 <div class="box tabular">
-<%= form_for @announcement,
-  					 :url => {:action => :update},
-  					 :html => {:method => :put} do |f|%>
-  <%= f.error_messages %>
-  <p>
-    <%= f.label :text, l('announcements.text') %>
-    <%= f.text_area :text, :cols => 80, :rows => 5 %>
-  </p>
-  <p>
-    <%= announcement_date_field_with_calendar f, @announcement.show_until, "show_until" %>
-  </p>
-  <p>
-    <%= f.label :active, l('announcements.active') %>
-    <%= f.check_box :active %>
-  </p>
-  <p>
-    <%= f.submit l(:button_save)%>
-  </p>
-<%end%>
+  <%= form_for @announcement,
+               :url => {:action => :update},
+               :html => {:method => :put} do |f|%>
+    <p>
+      <%= f.label :text, l('announcements.text') %>
+      <%= f.text_area :text, :cols => 80, :rows => 5 %>
+    </p>
+    <p>
+      <%= announcement_date_field_with_calendar f, @announcement.show_until, "show_until" %>
+    </p>
+    <p>
+      <%= f.label :active, l('announcements.active') %>
+      <%= f.check_box :active %>
+    </p>
+    <p>
+      <%= f.submit l(:button_save)%>
+    </p>
+  <%end%>
 </div>
 
