@@ -1,5 +1,7 @@
 # Changelog
 
+## 0.5.0
+
 * `#4024` Subpages have no unique page titles
 
 ## 0.5.0.pre7
