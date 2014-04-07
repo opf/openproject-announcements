@@ -25,7 +25,7 @@ module OpenProject::Announcements
     end
 
     initializer 'announcements.precompile_assets' do
-      Rails.application.config.assets.precompile += %w(announcements.css)
+      Rails.application.config.assets.precompile += %w(announcements/announcements.css)
     end
 
     # adds our factories to factory girl's load path
