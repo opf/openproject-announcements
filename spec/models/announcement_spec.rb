@@ -1,12 +1,12 @@
 require 'spec_helper'
 
 describe Announcement do
-  it {should respond_to :text}
-  it {should respond_to :text=}
-  it {should respond_to :show_until}
-  it {should respond_to :show_until=}
-  it {should respond_to :active?}
-  it {should respond_to :active=}
+  it {is_expected.to respond_to :text}
+  it {is_expected.to respond_to :text=}
+  it {is_expected.to respond_to :show_until}
+  it {is_expected.to respond_to :show_until=}
+  it {is_expected.to respond_to :active?}
+  it {is_expected.to respond_to :active=}
 
   describe "class methods" do
     before :each do
@@ -23,9 +23,9 @@ describe Announcement do
 
         end
 
-        it {Announcement.only_one.text.should eql "Announcement"}
-        it {Announcement.only_one.show_until.should eql(Date.today + 14.days)}
-        it {Announcement.only_one.active.should eql false}
+        it {expect(Announcement.only_one.text).to eql "Announcement"}
+        it {expect(Announcement.only_one.show_until).to eql(Date.today + 14.days)}
+        it {expect(Announcement.only_one.active).to eql false}
 
       end
 
@@ -34,7 +34,7 @@ describe Announcement do
           @announcement = FactoryGirl.create(:announcement)
         end
 
-        it{Announcement.only_one.should eql @announcement}
+        it{expect(Announcement.only_one).to eql @announcement}
       end
     end
 
@@ -44,7 +44,7 @@ describe Announcement do
           FactoryGirl.create(:inactive_announcement)
         end
 
-        it{ Announcement.active_and_current.should be_nil }
+        it{ expect(Announcement.active_and_current).to be_nil }
       end
 
       describe "WHEN the one announcement is active and today is before show_until" do
@@ -53,7 +53,7 @@ describe Announcement do
                                          :show_until => Date.today + 14.days)
         end
 
-        it{ Announcement.active_and_current.should eql @announcement }
+        it{ expect(Announcement.active_and_current).to eql @announcement }
       end
 
       describe "WHEN the one announcement is active and today is after show_until" do
@@ -62,7 +62,7 @@ describe Announcement do
                          :show_until => Date.today - 14.days)
         end
 
-        it{ Announcement.active_and_current.should be_nil }
+        it{ expect(Announcement.active_and_current).to be_nil }
       end
 
       describe "WHEN the one announcement is active and today equals show_until" do
@@ -71,7 +71,7 @@ describe Announcement do
                                          :show_until => Date.today)
         end
 
-        it{ Announcement.active_and_current.should eql @announcement }
+        it{ expect(Announcement.active_and_current).to eql @announcement }
       end
     end
 
@@ -96,12 +96,12 @@ describe Announcement do
           }
         end
 
-        it { @announcement.active.should == active }
-        it { @announcement.show_until.should == show_until }
-        it { @announcement.text.should == text }
-        it { @announcement.id.should_not == id }
-        it { @announcement.created_at.should_not == created_at }
-        it { @announcement.updated_at.should_not == updated_at }
+        it { expect(@announcement.active).to eq(active) }
+        it { expect(@announcement.show_until).to eq(show_until) }
+        it { expect(@announcement.text).to eq(text) }
+        it { expect(@announcement.id).not_to eq(id) }
+        it { expect(@announcement.created_at).not_to eq(created_at) }
+        it { expect(@announcement.updated_at).not_to eq(updated_at) }
       end
 
       describe :active_and_current? do
@@ -110,7 +110,7 @@ describe Announcement do
             @announcement = FactoryGirl.build(:inactive_announcement)
           end
 
-          it{ @announcement.active_and_current?.should be_false }
+          it{ expect(@announcement.active_and_current?).to be_falsey }
         end
 
         describe "WHEN the announcement is active and today is before show_until" do
@@ -119,7 +119,7 @@ describe Announcement do
                                            :show_until => Date.today + 14.days)
           end
 
-          it{ @announcement.active_and_current?.should be_true }
+          it{ expect(@announcement.active_and_current?).to be_truthy }
         end
 
         describe "WHEN the announcement is active and today is after show_until" do
@@ -128,7 +128,7 @@ describe Announcement do
                            :show_until => Date.today - 14.days)
           end
 
-          it{ @announcement.active_and_current?.should be_false }
+          it{ expect(@announcement.active_and_current?).to be_falsey }
         end
 
         describe "WHEN the announcement is active and today equals show_until" do
@@ -137,7 +137,7 @@ describe Announcement do
                                            :show_until => Date.today)
           end
 
-          it{ @announcement.active_and_current?.should be_true }
+          it{ expect(@announcement.active_and_current?).to be_truthy }
         end
       end
 
