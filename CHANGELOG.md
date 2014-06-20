@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.1
+
+* Fix path of asset that should be precompiled
+
 ## 0.5.0
 
 * `#4024` Subpages have no unique page titles
