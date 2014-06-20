@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.5.1
+## 3.0.8
 
 * Fix path of asset that should be precompiled
 

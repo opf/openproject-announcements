@@ -1,5 +1,5 @@
 module OpenProject
   module Announcements
-    VERSION = "0.5.1"
+    VERSION = "3.0.8"
   end
 end
