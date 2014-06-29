@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Announcement do
+describe Announcement, :type => :model do
   it {is_expected.to respond_to :text}
   it {is_expected.to respond_to :text=}
   it {is_expected.to respond_to :show_until}

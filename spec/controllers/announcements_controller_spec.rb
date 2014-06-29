@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AnnouncementsController do
+describe AnnouncementsController, :type => :controller do
   before(:each) do
     allow(@controller).to receive(:check_if_login_required)
     expect(@controller).to receive(:require_admin)
