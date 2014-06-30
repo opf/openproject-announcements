@@ -27,4 +27,3 @@ class AggregatedAnnouncementsMigrations < ActiveRecord::Migration
     drop_table :announcements
   end
 end
-
