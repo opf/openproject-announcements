@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe AnnouncementsController do
+describe AnnouncementsController, :type => :controller do
   before(:each) do
-    @controller.stub!(:check_if_login_required)
-    @controller.should_receive(:require_admin)
+    allow(@controller).to receive(:check_if_login_required)
+    expect(@controller).to receive(:require_admin)
 
     @announcement = mock_model Announcement
-    Announcement.stub!(:only_one).and_return(@announcement)
+    allow(Announcement).to receive(:only_one).and_return(@announcement)
     disable_flash_sweep
   end
 
@@ -26,8 +26,8 @@ describe AnnouncementsController do
             get :edit, @params
           end
 
-          it{assigns(:announcement).should eql @announcement}
-          it{response.should be_success}
+          it{expect(assigns(:announcement)).to eql @announcement}
+          it{expect(response).to be_success}
         end
       end
     end
@@ -46,8 +46,8 @@ describe AnnouncementsController do
 
       describe "SUCCESS" do
         before :each do
-          @announcement.should_receive(:attributes=)
-          @announcement.should_receive(:save).and_return(true)
+          expect(@announcement).to receive(:attributes=)
+          expect(@announcement).to receive(:save).and_return(true)
         end
 
         describe "html" do
@@ -55,9 +55,9 @@ describe AnnouncementsController do
             put :update, @params
           end
 
-          it{assigns(:announcement).should eql @announcement}
-          it{response.should render_template 'edit'}
-          it{flash[:notice].should eql I18n.t(:notice_successful_update)}
+          it{expect(assigns(:announcement)).to eql @announcement}
+          it{expect(response).to render_template 'edit'}
+          it{expect(flash[:notice]).to eql I18n.t(:notice_successful_update)}
         end
       end
     end
