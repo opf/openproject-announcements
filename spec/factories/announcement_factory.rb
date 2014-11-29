@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :announcement do
-    text "Announcement text"
+    text 'Announcement text'
     show_until Date.today + 14.days
     active true
 
