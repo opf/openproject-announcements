@@ -16,7 +16,7 @@ class AnnouncementsController < ApplicationController
       flash[:notice] = l(:notice_successful_update)
     end
 
-    render :action => 'edit'
+    render action: 'edit'
   end
 
   private

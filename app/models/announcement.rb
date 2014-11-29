@@ -1,10 +1,10 @@
 class Announcement < ActiveRecord::Base
   include Redmine::SafeAttributes
 
-  scope :active, where(:active => true)
+  scope :active, where(active: true)
   scope :current, where('show_until >= ?', Date.today)
 
-  validates :show_until, :presence => true
+  validates :show_until, presence: true
 
   attr_accessible :text,
                   :show_until,
@@ -29,8 +29,8 @@ class Announcement < ActiveRecord::Base
 
   private
   def self.create_default_announcement
-    Announcement.create :text => "Announcement",
-                        :show_until => Date.today + 14.days,
-                        :active => false
+    Announcement.create text: "Announcement",
+                        show_until: Date.today + 14.days,
+                        active: false
   end
 end

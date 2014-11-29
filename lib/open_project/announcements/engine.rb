@@ -18,9 +18,9 @@ module OpenProject::Announcements
 
         menu :admin_menu,
              :announcements,
-             {:controller => 'announcements', :action => 'edit'},
-             :caption => 'Announcement',
-             :html => {:class => 'icon2 icon-news'}
+             {controller: 'announcements', action: 'edit'},
+             caption: 'Announcement',
+             html: {class: 'icon2 icon-news'}
       end
     end
 
@@ -29,7 +29,7 @@ module OpenProject::Announcements
     end
 
     # adds our factories to factory girl's load path
-    initializer "announcements.register_factories", :after => "factory_girl.set_factory_paths" do |app|
+    initializer "announcements.register_factories", after: "factory_girl.set_factory_paths" do |app|
       if defined?(FactoryGirl)
         FactoryGirl.definition_file_paths << File.expand_path(self.root.to_s + '/spec/factories')
       end
@@ -54,7 +54,7 @@ module OpenProject::Announcements
                                                           "..", "..", "..", "config", "routes.rb")
     end
 
-    initializer "announcements.remove_duplicate_routes", :after => "add_routing_paths" do |app|
+    initializer "announcements.remove_duplicate_routes", after: "add_routing_paths" do |app|
       # removes duplicate entry from app.routes_reloader
       # As we prepend the plugin's routes to the load_path up front and rails
       # adds all engines' config/routes.rb later, we have double loaded the routes

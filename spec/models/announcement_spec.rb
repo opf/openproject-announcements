@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Announcement, :type => :model do
+describe Announcement, type: :model do
   it {is_expected.to respond_to :text}
   it {is_expected.to respond_to :text=}
   it {is_expected.to respond_to :show_until}
@@ -50,7 +50,7 @@ describe Announcement, :type => :model do
       describe "WHEN the one announcement is active and today is before show_until" do
         before :each do
           @announcement = FactoryGirl.create(:active_announcement,
-                                         :show_until => Date.today + 14.days)
+                                         show_until: Date.today + 14.days)
         end
 
         it{ expect(Announcement.active_and_current).to eql @announcement }
@@ -59,7 +59,7 @@ describe Announcement, :type => :model do
       describe "WHEN the one announcement is active and today is after show_until" do
         before :each do
           FactoryGirl.create(:active_announcement,
-                         :show_until => Date.today - 14.days)
+                         show_until: Date.today - 14.days)
         end
 
         it{ expect(Announcement.active_and_current).to be_nil }
@@ -68,7 +68,7 @@ describe Announcement, :type => :model do
       describe "WHEN the one announcement is active and today equals show_until" do
         before :each do
           @announcement = FactoryGirl.create(:active_announcement,
-                                         :show_until => Date.today)
+                                         show_until: Date.today)
         end
 
         it{ expect(Announcement.active_and_current).to eql @announcement }
@@ -87,12 +87,12 @@ describe Announcement, :type => :model do
         before do
           @announcement = Announcement.new
           @announcement.safe_attributes = {
-            :id => id,
-            :active => active,
-            :show_until => show_until,
-            :text => text,
-            :created_at => created_at,
-            :updated_at => updated_at
+            id: id,
+            active: active,
+            show_until: show_until,
+            text: text,
+            created_at: created_at,
+            updated_at: updated_at
           }
         end
 
@@ -116,7 +116,7 @@ describe Announcement, :type => :model do
         describe "WHEN the announcement is active and today is before show_until" do
           before :each do
             @announcement = FactoryGirl.build(:active_announcement,
-                                           :show_until => Date.today + 14.days)
+                                           show_until: Date.today + 14.days)
           end
 
           it{ expect(@announcement.active_and_current?).to be_truthy }
@@ -125,7 +125,7 @@ describe Announcement, :type => :model do
         describe "WHEN the announcement is active and today is after show_until" do
           before :each do
             @announcement = FactoryGirl.build(:active_announcement,
-                           :show_until => Date.today - 14.days)
+                           show_until: Date.today - 14.days)
           end
 
           it{ expect(@announcement.active_and_current?).to be_falsey }
@@ -134,7 +134,7 @@ describe Announcement, :type => :model do
         describe "WHEN the announcement is active and today equals show_until" do
           before :each do
             @announcement = FactoryGirl.build(:active_announcement,
-                                           :show_until => Date.today)
+                                           show_until: Date.today)
           end
 
           it{ expect(@announcement.active_and_current?).to be_truthy }
