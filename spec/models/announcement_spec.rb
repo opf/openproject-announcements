@@ -13,7 +13,7 @@ describe Announcement, :type => :model do
 
     end
 
-    describe :only_one do
+    describe '#only_one' do
       before :each do
 
       end
@@ -38,7 +38,7 @@ describe Announcement, :type => :model do
       end
     end
 
-    describe :active_and_current do
+    describe '#active_and_current' do
       describe "WHEN no announcement is active" do
         before :each do
           FactoryGirl.create(:inactive_announcement)
@@ -104,7 +104,7 @@ describe Announcement, :type => :model do
         it { expect(@announcement.updated_at).not_to eq(updated_at) }
       end
 
-      describe :active_and_current? do
+      describe '#active_and_current?' do
         describe "WHEN the announcement is not active" do
           before :each do
             @announcement = FactoryGirl.build(:inactive_announcement)

@@ -10,12 +10,12 @@ describe AnnouncementsController, :type => :controller do
     disable_flash_sweep
   end
 
-  describe :get do
+  describe '#get' do
     before :each do
 
     end
 
-    describe :edit do
+    describe '#edit' do
       before :each do
         @params = {}
       end
@@ -33,11 +33,11 @@ describe AnnouncementsController, :type => :controller do
     end
   end
 
-  describe :put do
+  describe '#put' do
     before :each do
     end
 
-    describe :update do
+    describe '#update' do
       before :each do
         @params = {"announcement" => {"until_date" => "2011-01-11",
                                       "text" => "announcement!!!",
