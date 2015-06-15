@@ -1,8 +1,8 @@
 class Announcement < ActiveRecord::Base
   include Redmine::SafeAttributes
 
-  scope :active, where(:active => true)
-  scope :current, where('show_until >= ?', Date.today)
+  scope :active,  -> { where(active: true) }
+  scope :current, -> { where('show_until >= ?', Date.today) }
 
   validates :show_until, :presence => true
 
