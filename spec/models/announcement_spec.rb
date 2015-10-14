@@ -76,34 +76,6 @@ describe Announcement, :type => :model do
     end
 
     describe "instance methods" do
-      describe "mass assignment protected" do
-        let(:id) { 100 }
-        let(:active) { true }
-        let(:show_until) { "2011-01-03".to_date }
-        let(:text) { "lorem ipsum" }
-        let(:created_at) { "2011-01-01".to_date }
-        let(:updated_at) { "2012-01-02".to_date }
-
-        before do
-          @announcement = Announcement.new
-          @announcement.safe_attributes = {
-            :id => id,
-            :active => active,
-            :show_until => show_until,
-            :text => text,
-            :created_at => created_at,
-            :updated_at => updated_at
-          }
-        end
-
-        it { expect(@announcement.active).to eq(active) }
-        it { expect(@announcement.show_until).to eq(show_until) }
-        it { expect(@announcement.text).to eq(text) }
-        it { expect(@announcement.id).not_to eq(id) }
-        it { expect(@announcement.created_at).not_to eq(created_at) }
-        it { expect(@announcement.updated_at).not_to eq(updated_at) }
-      end
-
       describe '#active_and_current?' do
         describe "WHEN the announcement is not active" do
           before :each do
