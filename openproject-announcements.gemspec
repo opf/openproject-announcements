@@ -6,9 +6,9 @@ require 'open_project/announcements/version'
 Gem::Specification.new do |s|
   s.name        = "openproject-announcements"
   s.version     = OpenProject::Announcements::VERSION
-  s.authors     = "Finn GmbH"
-  s.email       = "info@finn.de"
-  s.homepage    = "http://www.finn.de"
+  s.authors     = "OpenProject GmbH"
+  s.email       = "info@openproject.com"
+  s.homepage    = "http://www.openproject.com"
   s.summary     = 'OpenProject Plugin for showing announcements on the login page'
   s.description = s.summary
 
