@@ -1,17 +1,9 @@
 class Announcement < ActiveRecord::Base
-  include Redmine::SafeAttributes
 
   scope :active,  -> { where(active: true) }
   scope :current, -> { where('show_until >= ?', Date.today) }
 
   validates :show_until, :presence => true
-
-  attr_accessible :text,
-                  :show_until,
-                  :active
-
-  # for use with safe_attributes=
-  safe_attributes 'text', 'show_until', 'active'
 
   def self.active_and_current
     active.current.first

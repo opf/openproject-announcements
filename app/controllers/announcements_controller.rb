@@ -9,7 +9,7 @@ class AnnouncementsController < ApplicationController
 
   def update
     @announcement = Announcement.only_one
-    @announcement.attributes = params[:announcement]
+    @announcement.attributes = announcement_params
 
     if @announcement.save
       flash[:notice] = l(:notice_successful_update)
@@ -22,5 +22,9 @@ class AnnouncementsController < ApplicationController
 
   def default_breadcrumb
     l('announcements.announcement')
+  end
+
+  def announcement_params
+    params.require(:announcement).permit('text', 'show_until', 'active')
   end
 end
