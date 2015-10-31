@@ -1,14 +1,13 @@
-require Rails.root.join("db","migrate","migration_utils","migration_squasher").to_s
+require Rails.root.join('db', 'migrate', 'migration_utils', 'migration_squasher').to_s
 require 'open_project/plugins/migration_mapping'
 # This migration aggregates the migrations detailed in the MIGRATION_FILES
 class AggregatedAnnouncementsMigrations < ActiveRecord::Migration
-
   MIGRATION_FILES = <<-MIGRATIONS
     001_create_announcements.rb
     20121114100640_index_on_announcements.rb
   MIGRATIONS
 
-  OLD_PLUGIN_NAME = "redmine_announcements"
+  OLD_PLUGIN_NAME = 'redmine_announcements'
 
   def up
     migration_names = OpenProject::Plugins::MigrationMapping.migration_files_to_migration_names(MIGRATION_FILES, OLD_PLUGIN_NAME)
@@ -16,7 +15,7 @@ class AggregatedAnnouncementsMigrations < ActiveRecord::Migration
       create_table :announcements do |t|
         t.text :text
         t.date :show_until
-        t.boolean :active, :default => false
+        t.boolean :active, default: false
         t.timestamps
       end
       add_index :announcements, [:show_until, :active]
