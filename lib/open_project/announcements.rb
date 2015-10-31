@@ -1,5 +1,5 @@
 module OpenProject
   module Announcements
-    require "open_project/announcements/engine"
+    require 'open_project/announcements/engine'
   end
 end

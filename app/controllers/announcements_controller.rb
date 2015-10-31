@@ -1,7 +1,7 @@
 class AnnouncementsController < ApplicationController
   layout 'admin'
 
-  before_filter :require_admin
+  before_action :require_admin
 
   def edit
     @announcement = Announcement.only_one
@@ -11,11 +11,9 @@ class AnnouncementsController < ApplicationController
     @announcement = Announcement.only_one
     @announcement.attributes = announcement_params
 
-    if @announcement.save
-      flash[:notice] = l(:notice_successful_update)
-    end
+    flash[:notice] = l(:notice_successful_update) if @announcement.save
 
-    render :action => 'edit'
+    render action: 'edit'
   end
 
   private

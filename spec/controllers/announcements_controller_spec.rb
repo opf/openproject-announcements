@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe AnnouncementsController, :type => :controller do
+describe AnnouncementsController, type: :controller do
   before(:each) do
     allow(@controller).to receive(:check_if_login_required)
     expect(@controller).to receive(:require_admin)
@@ -12,7 +12,6 @@ describe AnnouncementsController, :type => :controller do
 
   describe '#get' do
     before :each do
-
     end
 
     describe '#edit' do
@@ -20,14 +19,14 @@ describe AnnouncementsController, :type => :controller do
         @params = {}
       end
 
-      describe "SUCCESS" do
-        describe "html" do
+      describe 'SUCCESS' do
+        describe 'html' do
           before :each do
             get :edit, @params
           end
 
-          it{expect(assigns(:announcement)).to eql @announcement}
-          it{expect(response).to be_success}
+          it { expect(assigns(:announcement)).to eql @announcement }
+          it { expect(response).to be_success }
         end
       end
     end
@@ -39,25 +38,25 @@ describe AnnouncementsController, :type => :controller do
 
     describe '#update' do
       before :each do
-        @params = {"announcement" => {"until_date" => "2011-01-11",
-                                      "text" => "announcement!!!",
-                                      "active" => "1"}}
+        @params = { 'announcement' => { 'until_date' => '2011-01-11',
+                                        'text' => 'announcement!!!',
+                                        'active' => '1' } }
       end
 
-      describe "SUCCESS" do
+      describe 'SUCCESS' do
         before :each do
           expect(@announcement).to receive(:attributes=)
           expect(@announcement).to receive(:save).and_return(true)
         end
 
-        describe "html" do
+        describe 'html' do
           before :each do
             put :update, @params
           end
 
-          it{expect(assigns(:announcement)).to eql @announcement}
-          it{expect(response).to render_template 'edit'}
-          it{expect(flash[:notice]).to eql I18n.t(:notice_successful_update)}
+          it { expect(assigns(:announcement)).to eql @announcement }
+          it { expect(response).to render_template 'edit' }
+          it { expect(flash[:notice]).to eql I18n.t(:notice_successful_update) }
         end
       end
     end
