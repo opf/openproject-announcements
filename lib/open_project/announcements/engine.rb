@@ -35,10 +35,6 @@ module OpenProject::Announcements
       end
     end
 
-    initializer 'announcements.register_test_paths' do |app|
-      app.config.plugins_to_test_paths << self.root
-    end
-
     initializer 'announcements.append_migrations' do |app|
       unless app.root.to_s.match root.to_s
         config.paths["db/migrate"].expanded.each do |expanded_path|
