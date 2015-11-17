@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.version     = OpenProject::Announcements::VERSION
   s.authors     = "OpenProject GmbH"
   s.email       = "info@openproject.com"
-  s.homepage    = "http://www.openproject.com"
+  s.homepage    = "https://community.openproject.org/projects/announcement/"
   s.summary     = 'OpenProject Plugin for showing announcements on the login page'
   s.description = s.summary
 
